@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+}
+
+group 'org.kartashov'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Reference implementation jar file, including SMTP, IMAP, and POP3 protocol providers
+    implementation 'com.sun.mail:javax.mail:1.6.2'
+    // definitions only, suitable for compiling against; use only with a Maven “provided” dependency scope
+    implementation 'javax.mail:javax.mail-api:1.6.2'
+    // Reference implementation with no protocol providers
+    implementation 'com.sun.mail:mailapi:1.6.3'
+    // The SMTP protocol provider
+    implementation 'com.sun.mail:smtp:1.6.3'
+    // 	The IMAP protocol provider
+    implementation 'com.sun.mail:imap:1.6.3'
+    // The POP3 protocol provider
+    implementation 'com.sun.mail:pop3:1.6.3'
+    // 	Support for parsing and creating messages containing Delivery Status Notifications
+    implementation 'com.sun.mail:dsn:1.6.3'
+    // An EXPERIMENTAL Gmail IMAP protocol provider that supports Gmail-specific features
+    implementation 'com.sun.mail:gimap:1.6.3'
+    // A java.util.logging handler that uses JavaMail, suitable for use in Google App Engine.
+    implementation 'com.sun.mail:logging-mailhandler:1.6.3'
+
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.12.0'
+
+    // JavaBeans Activation Framework
+    implementation 'javax.activation:activation:1.1.1'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    // GreenMail
+    testCompile 'com.icegreen:greenmail:1.5.10'
+//    testCompile 'com.icegreen:greenmail-spring:1.5.10'
+
+    implementation 'com.ecwid:maleorang:3.0-0.9.5'
+}
